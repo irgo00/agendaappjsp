@@ -1,20 +1,33 @@
 package br.edu.ifpr.irati.model;
 
+import jakarta.persistence.*;
+
 import java.util.HashSet;
 import java.util.Set;
 
+//entity define que Professor terá uma tabela tb_professor
+@Entity
 public class Professor {
 
+    //marca o campo de chave primária
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_professor")
+    @SequenceGenerator(name="seq_professor", sequenceName = "professor_seq", allocationSize = 1, initialValue = 1)
     private Integer id;
 
+    @Column(name="nome", nullable = false, length = 200)
     private String nome;
 
+    @Column(name="email", nullable = false, length = 200)
     private String email;
 
+    @Column(name="senha", nullable = false, length = 10)
     private String senha;
 
+    @Column(name="ativo")
     private boolean ativo;
 
+    @Transient
     private Set<Disciplina> disciplinas;
 
     public Professor(){
@@ -81,5 +94,16 @@ public class Professor {
 
     public void setDisciplinas(Set<Disciplina> disciplinas) {
         this.disciplinas = disciplinas;
+    }
+
+    @Override
+    public String toString() {
+        return "Professor{" +
+                "ativo=" + ativo +
+                ", senha='" + senha + '\'' +
+                ", email='" + email + '\'' +
+                ", nome='" + nome + '\'' +
+                ", id=" + id +
+                '}';
     }
 }
