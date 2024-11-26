@@ -1,15 +1,34 @@
 package br.edu.ifpr.irati.model;
 
+import jakarta.persistence.*;
+
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
+@Table(name="TB_DISCIPLINA")
 public class Disciplina {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_disciplina")
+    @SequenceGenerator(name="seq_disciplina", sequenceName = "disciplina_seq", allocationSize = 1, initialValue = 1)
     private Integer id;
+
+    @Column(name = "nome", nullable = false, length = 100)
     private String nome;
+
+    @Column(name = "chave", nullable = false, length = 8)
     private String chave;
+
+    @ManyToMany
+    @JoinTable(name = "TB_PROFESSOR_DISCIPLINA",
+            joinColumns = {@JoinColumn(name="fk_id_disciplina")},
+            inverseJoinColumns = {@JoinColumn(name="fk_id_professor")}
+    )
     private Set<Professor> professores;
+    @Transient
     private Set<Aluno> alunos;
+    @Transient
     private Set<Atividade> atividades;
 
     public Disciplina(){

@@ -7,6 +7,7 @@ import java.util.Set;
 
 //entity define que Professor terá uma tabela tb_professor
 @Entity
+@Table(name = "TB_PROFESSOR")
 public class Professor {
 
     //marca o campo de chave primária
@@ -27,7 +28,11 @@ public class Professor {
     @Column(name="ativo")
     private boolean ativo;
 
-    @Transient
+    @ManyToMany
+    @JoinTable(name = "TB_PROFESSOR_DISCIPLINA",
+            joinColumns = {@JoinColumn(name="fk_id_professor")},
+            inverseJoinColumns = {@JoinColumn(name="fk_id_disciplina")}
+    )
     private Set<Disciplina> disciplinas;
 
     public Professor(){

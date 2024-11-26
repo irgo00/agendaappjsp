@@ -1,11 +1,21 @@
 package br.edu.ifpr.irati.model;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name="TB_TAREFA")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Tarefa extends Atividade{
 
+    @Column(name = "status")
     private Integer status;
+
+    @Column(name="data_hora_conclusao")
     private LocalDateTime dataHoraConclusao;
+
+    @Transient
     private Aluno aluno;
 
     public Tarefa(){

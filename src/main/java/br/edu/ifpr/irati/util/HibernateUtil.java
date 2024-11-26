@@ -1,6 +1,6 @@
 package br.edu.ifpr.irati.util;
 
-import br.edu.ifpr.irati.model.Professor;
+import br.edu.ifpr.irati.model.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
@@ -32,6 +32,11 @@ public class HibernateUtil {
 
             MetadataSources metadataSources = new MetadataSources(serviceRegistry);
             metadataSources.addAnnotatedClass(Professor.class);
+            metadataSources.addAnnotatedClass(Disciplina.class);
+            metadataSources.addAnnotatedClass(Aluno.class);
+            metadataSources.addAnnotatedClass(Atividade.class);
+            metadataSources.addAnnotatedClass(Responsavel.class);
+            metadataSources.addAnnotatedClass(Tarefa.class);
 
             Metadata metadata = metadataSources.buildMetadata();
 
