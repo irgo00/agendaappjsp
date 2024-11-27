@@ -3,6 +3,7 @@ package br.edu.ifpr.irati.model;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 //entity define que Professor terá uma tabela tb_professor
@@ -111,4 +112,12 @@ public class Professor {
                 ", id=" + id +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        Professor professor = (Professor) o;
+        return id.equals(professor.id);
+    }
+
+
 }

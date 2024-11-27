@@ -59,6 +59,14 @@ public class Disciplina {
         this.atividades = atividades;
     }
 
+    public void adicionarProfessor(Professor professor){
+        this.professores.add(professor);
+    }
+
+    public void removerProfessor(Professor professor){
+        this.professores.remove(professor);
+    }
+
     public Integer getId() {
         return id;
     }
