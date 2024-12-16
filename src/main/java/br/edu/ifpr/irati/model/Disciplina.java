@@ -26,8 +26,14 @@ public class Disciplina {
             inverseJoinColumns = {@JoinColumn(name="fk_id_professor")}
     )
     private Set<Professor> professores;
-    @Transient
+
+    @ManyToMany
+    @JoinTable(name = "TB_ALUNO_DISCIPLINA",
+            joinColumns = {@JoinColumn(name="fk_id_disciplina")},
+            inverseJoinColumns = {@JoinColumn(name="fk_id_aluno")}
+    )
     private Set<Aluno> alunos;
+
     @Transient
     private Set<Atividade> atividades;
 
@@ -63,9 +69,18 @@ public class Disciplina {
         this.professores.add(professor);
     }
 
+    public void removerAluno(Aluno aluno){
+        this.alunos.remove(aluno);
+    }
+
+    public void adicionarAluno(Aluno aluno){
+        this.alunos.add(aluno);
+    }
+
     public void removerProfessor(Professor professor){
         this.professores.remove(professor);
     }
+
 
     public Integer getId() {
         return id;

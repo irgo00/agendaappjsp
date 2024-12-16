@@ -26,4 +26,10 @@ public class TarefaService implements Service{
     public void excluir(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
     }
+
+    @Override
+    public void buscarPorId(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+    }
+
 }

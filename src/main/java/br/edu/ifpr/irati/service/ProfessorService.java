@@ -26,4 +26,11 @@ public class ProfessorService implements Service{
     public void excluir(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.getWriter().write("excluir professor");
     }
+
+    @Override
+    public void buscarPorId(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.getWriter().write("Buscar professor por id");
+    }
+
+
 }

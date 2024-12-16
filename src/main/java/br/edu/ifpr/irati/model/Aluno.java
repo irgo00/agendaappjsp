@@ -2,6 +2,8 @@ package br.edu.ifpr.irati.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -22,6 +24,12 @@ public class Aluno {
     @Column(name="senha", nullable = false, length = 150)
     private String senha;
 
+    @ManyToMany
+    @JoinTable(name = "TB_ALUNO_DISCIPLINA",
+            joinColumns = {@JoinColumn(name="fk_id_aluno")},
+            inverseJoinColumns = {@JoinColumn(name="fk_id_disciplina")}
+    )
+
     @Transient
     private Set<Disciplina> disciplinas;
 
@@ -30,4 +38,86 @@ public class Aluno {
 
     @Transient
     private List<Tarefa> tarefas;
+
+    public Aluno() {
+        id = 0;
+        nome = "";
+        email = "";
+        senha = "";
+        disciplinas = new HashSet<>();
+        responsaveis = new HashSet<>();
+        tarefas = new ArrayList<>();
+    }
+
+    public Aluno(Integer id, String nome, String email, String senha, Set<Disciplina> disciplinas, Set<Responsavel> responsaveis, List<Tarefa> tarefas) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.senha = senha;
+        this.disciplinas = disciplinas;
+        this.responsaveis = responsaveis;
+        this.tarefas = tarefas;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public Set<Disciplina> getDisciplinas() {
+        return disciplinas;
+    }
+
+    public void setDisciplinas(Set<Disciplina> disciplinas) {
+        this.disciplinas = disciplinas;
+    }
+
+    public Set<Responsavel> getResponsaveis() {
+        return responsaveis;
+    }
+
+    public void setResponsaveis(Set<Responsavel> responsaveis) {
+        this.responsaveis = responsaveis;
+    }
+
+    public List<Tarefa> getTarefas() {
+        return tarefas;
+    }
+
+    public void setTarefas(List<Tarefa> tarefas) {
+        this.tarefas = tarefas;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        Aluno aluno = (Aluno) o;
+        return id.equals(aluno.id);
+    }
 }

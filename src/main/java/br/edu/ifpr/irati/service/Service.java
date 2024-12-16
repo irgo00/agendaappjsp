@@ -15,4 +15,8 @@ public interface Service {
     public void salvar(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException;
 
     public void excluir(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException;
+
+    public void buscarPorId(HttpServletRequest req,HttpServletResponse resp) throws ServletException, IOException;
+
 }
+

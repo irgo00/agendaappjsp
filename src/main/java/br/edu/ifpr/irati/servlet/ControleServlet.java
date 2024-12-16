@@ -39,6 +39,9 @@ public class ControleServlet extends HttpServlet {
                 case "excluir":
                     service.excluir(req, resp);
                     break;
+                case "buscarPorId":
+                    service.buscarPorId(req, resp);
+                    break;
                 default:
                     //enviar para uma tela de erro
                     break;
