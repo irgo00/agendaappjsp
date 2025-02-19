@@ -1,6 +1,6 @@
-# Classroom App
+# Agenda App
 
-Classroom App é um sistema web parecido com Google Classroom, desenvolvido utilizando **JSP, Hibernate e Materialize**. A aplicação permite o gerenciamento de alunos, professores e disciplinas, garantindo uma interface amigável e responsiva.
+Agenda App é um sistema web parecido com Google Classroom, desenvolvido utilizando **JSP, Hibernate e Materialize**. A aplicação permite o gerenciamento de alunos, professores e disciplinas, garantindo uma interface amigável e responsiva.
 
 ## Funcionalidades
 
