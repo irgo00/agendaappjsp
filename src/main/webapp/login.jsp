@@ -6,17 +6,7 @@
     <%@ include file="header.jsp" %>
 </head>
 <body>
-<p>Página de Login</p>
-
-<p> O formulário deve levar para um servlet pelo caminho /login ou similar.
-    O servlet deve validar o email e a senha digitados. Se estiverem corretos e o cadastro estiver ativo,
-    deve armazenar uma variável de sessão com o objeto logado (que pode ser um professor ou um aluno) sob o nome
-    usuarioLogado.
-    Ao final o servlet deve redirecionar para home.jsp. Lá já tem um código para criação uma
-    de uma barra de navegação lateral e também para exibição de disciplinas associadas tanto
-    para professores quanto para alunos. A página só é criada se um objeto válido estiver setado na sessão com o nome
-    usuarioLogado.
-</p>
+<h4>Página de Login</h4>
 
 <form action="login/validar">
     <div class="row">

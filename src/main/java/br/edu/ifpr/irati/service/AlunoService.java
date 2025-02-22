@@ -3,6 +3,7 @@ package br.edu.ifpr.irati.service;
 import br.edu.ifpr.irati.dao.Dao;
 import br.edu.ifpr.irati.model.Aluno;
 import br.edu.ifpr.irati.model.Professor;
+import br.edu.ifpr.irati.util.JwtUtil;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

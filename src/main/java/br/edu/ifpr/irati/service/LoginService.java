@@ -6,6 +6,8 @@ import br.edu.ifpr.irati.exception.PersistenceException;
 import br.edu.ifpr.irati.model.Aluno;
 import br.edu.ifpr.irati.model.Professor;
 import br.edu.ifpr.irati.util.HibernateUtil;
+import br.edu.ifpr.irati.util.JwtUtil;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -31,9 +33,23 @@ public class LoginService implements AutenticacaoService{
 
             if (professor != null) {
                 req.getSession().setAttribute("usuarioLogado", professor);
+
+                String stoken = JwtUtil.gerarToken(professor.getId());
+                Cookie token = new Cookie("token", stoken);
+                token.setMaxAge(60);
+                token.setPath("/"); // Disponível em todo o site
+                resp.addCookie(token);
+
                 resp.sendRedirect("../home.jsp");
             } else if (aluno != null) {
                 req.getSession().setAttribute("usuarioLogado", aluno);
+
+                String stoken = JwtUtil.gerarToken(aluno.getId());
+                Cookie token = new Cookie("token",stoken);
+                token.setMaxAge(60);
+                token.setPath("/"); // Disponível em todo o site
+                resp.addCookie(token);
+
                 resp.sendRedirect("../home.jsp");
             } else {
                 resp.sendRedirect("../erroLogin.jsp"); // Redireciona para login com erro
