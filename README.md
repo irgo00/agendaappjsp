@@ -5,6 +5,7 @@ Agenda App é um sistema web parecido com Google Classroom, desenvolvido utiliza
 ## Funcionalidades
 
 - **Autenticação**: Tela de login com diferença na interface para alunos e professores.
+- **Segurança**: Utilização de JWT e cookies para login de usuários.
 - **CRUD de Alunos**: Cadastro, leitura, atualização e remoção de alunos.
 - **CRUD de Professores**: Cadastro, leitura, atualização e remoção de professores.
 - **CRUD de Disciplinas**: Professores podem criar, editar e remover disciplinas.
@@ -15,7 +16,7 @@ Agenda App é um sistema web parecido com Google Classroom, desenvolvido utiliza
 
 - **Linguagem**: Java
 - **Frontend**: JSP + Materialize (framework CSS)
-- **Backend**: Servlets + Hibernate (ORM para MySQL)
+- **Backend**: Servlets + Hibernate (ORM para MySQL) + JWT
 - **Servidor**: Tomcat
 - **Banco de Dados**: MySQL
 
